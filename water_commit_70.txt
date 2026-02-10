@@ -1,1 +1,1 @@
-commit 70: fix fix bug
+commit 70: wtf debug - by WeepingDogel
