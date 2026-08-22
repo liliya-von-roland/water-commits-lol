@@ -17,9 +17,19 @@
 # 自定义前缀
 ./water.sh 200 fix
 
-# 指定作者信息
-./water.sh 500 feat
+# 第三个参数是日期：today 表示今天，也可以直接给 ISO 时间
+./water.sh 500 feat today
 ```
+
+作者信息取自 `git config`，也可以用环境变量覆盖：
+
+```bash
+WATER_AUTHOR="Your Name" WATER_EMAIL="you@example.com" ./water.sh 100
+```
+
+## 兼容性
+
+Linux (GNU date) 和 macOS (BSD date) 都能跑，脚本会自己判断。
 
 ## Commit 消息类型
 
