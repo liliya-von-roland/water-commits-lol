@@ -8,6 +8,7 @@ EMAIL="weepingdogel@gmail.com"
 echo "🚰 水 $COUNT 个 commit，前缀: $PREFIX"
 echo "   作者: $AUTHOR <$EMAIL>"
 
+# 创建初始 commit（如果仓库为空）
 if [[ $(git rev-list --all --count 2>/dev/null) -eq 0 ]]; then
   echo "# Water Commits 🚰" > README.md
   git add README.md
@@ -37,5 +38,12 @@ for i in $(seq 1 $COUNT); do
     echo "  🌊 $i/$COUNT ..."
   fi
 done
+
+# 水完删掉多余的文件
+echo "  🧹 清理临时文件..."
+git rm --cached water_commit_*.txt >/dev/null 2>&1
+rm -f water_commit_*.txt
+git commit -m "cleanup water files" >/dev/null 2>&1
+
 echo ""
 echo "✅ 完成！共 $COUNT 个 commit"
